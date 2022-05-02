@@ -17,6 +17,7 @@ function Login(props) {
             </form>
             <button id="submit_user_btn" onClick={() => props.headerFunc(nameText, passwordText)}>Login user</button>
             <Link to={"/playlists"}>Playlists</Link>
+            <Link to={"/music"}>Music</Link>
         </div>
       </div>
     );

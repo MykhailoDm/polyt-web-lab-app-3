@@ -3,6 +3,7 @@ import { HashRouter, Routes, Route } from 'react-router-dom'
 import './App.css';
 import Index from './js/Index';
 import Login from './js/Login';
+import Music from './js/Music';
 import Playlists from './js/Playlists';
 import Register from './js/Register';
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/login" element={<Login headerFunc={(name, password) => setNameAndPassword(name, password)} />}/>
         <Route path="/register" element={<Register />}/>
         <Route path="/playlists" element={<Playlists basicHeader={basicHeader}/>}/>
+        <Route path="/music" element={<Music basicHeader={basicHeader}/>}/>
       </Routes>
     </HashRouter>
   );
