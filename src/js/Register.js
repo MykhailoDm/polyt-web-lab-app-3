@@ -1,3 +1,4 @@
+import '../css/general_styles.css'
 import {useEffect, useState} from 'react';
 
 function Register() {
@@ -23,7 +24,7 @@ function Register() {
     };
 
     return (
-        <div>
+        <div className="text-format">
             <form autoComplete='off'>
                 <p>Email</p>
                 <input onChange={ event => setEmailText(event.target.value)} id="user_email_textbox" />

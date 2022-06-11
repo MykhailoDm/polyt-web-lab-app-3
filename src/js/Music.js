@@ -1,11 +1,16 @@
 import {useEffect, useState} from 'react';
+import '../css/general_styles.css'
 import { Link } from "react-router-dom";
 
 function Music(props) {
 
   const [m, setM] = useState([])
 
-  let loadPlayLists = () => {
+  useEffect(() => {
+    loadMusic()
+  })
+
+  let loadMusic = () => {
     fetch('http://127.0.0.1:5000/music', {
             method: 'GET',
             headers: {
@@ -17,10 +22,12 @@ function Music(props) {
   }
 
   return (
-      <div>
+      <div className="text-format">
         <h1>Music</h1>
-        {loadPlayLists()}
-        {props.basicHeader !== '' ? m:<Link to={'/login'} >Login</Link>}
+        {props.basicHeader === '' || props.basicHeader === undefined || props.basicHeader === null ? "": m.map(item => {
+          return <li>{item.music_name}</li>;
+        })}
+        {props.basicHeader === '' || props.basicHeader === undefined || props.basicHeader === null ? <Link to={'/login'} >Login</Link> : ""}
       </div>
     );
   }

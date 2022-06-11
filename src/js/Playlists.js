@@ -1,9 +1,14 @@
 import {useEffect, useState} from 'react';
+import '../css/general_styles.css'
 import { Link } from "react-router-dom";
 
 function Playlists(props) {
 
-  const [p, setP] = useState([])
+  const [pl, setPl] = useState([])
+
+  useEffect(() => {
+    loadPlayLists()
+  });
 
   let loadPlayLists = () => {
     fetch('http://127.0.0.1:5000/playlist', {
@@ -12,7 +17,7 @@ function Playlists(props) {
               'Content-Type': 'application/json'
             }
         }).then(response => response.json())
-        .then(data => setP(data));
+        .then(data => setPl(data));
       let p = "Playlist King"
       console.log(p);
       console.log(p);
@@ -257,14 +262,17 @@ function Playlists(props) {
       console.log(p);
       console.log(p);
       console.log(p);
-      console.log(p);  
+      console.log(p);
+      return pl;
   }
 
   return (
-      <div>
+      <div className="text-format">
         <h1>Playlists</h1>
-        {loadPlayLists()}
-        {props.basicHeader !== '' ? p:<Link to={'/login'} >Login</Link>}
+        {props.basicHeader === '' || props.basicHeader === undefined || props.basicHeader === null ? "": pl.map(item => {
+          return <li>{item.playlist_name}</li>;
+        })}
+        {props.basicHeader === '' || props.basicHeader === undefined || props.basicHeader === null ? <Link to={'/login'} >Login</Link> : ""}
       </div>
     );
   }

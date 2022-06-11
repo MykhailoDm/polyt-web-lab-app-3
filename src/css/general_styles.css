@@ -1,0 +1,18 @@
+body {
+  background-color: black;
+}
+
+.text-format {
+  font-size: medium;
+  font-family: Arial, Helvetica, sans-serif;
+  color: azure;
+}
+
+button {
+  color: azure;
+  background-color: black;
+  border: 1px solid;
+  border-color: blue;
+}
+
+/*# sourceMappingURL=general_styles.css.map */

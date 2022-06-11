@@ -1,4 +1,5 @@
 import {useEffect, useState} from 'react';
+import '../css/general_styles.css'
 import { Link } from 'react-router-dom';
 
 function Login(props) {
@@ -8,7 +9,7 @@ function Login(props) {
 
     return (
       <div>
-        <div>
+        <div className="text-format">
             <form autoComplete='off'>
                 <p>Name</p>
                 <input onChange={ event => setNameText(event.target.value)} id="user_name_textbox" />
